@@ -21,28 +21,32 @@ var monthSingleDigit = dateNow.getMonth() + 1,
 var yy = dateNow.getFullYear().toString();
 
 var date1= args._[1];
+var date2= args._[2];
 
 request.get("https://www.quandl.com/api/v3/datasets/NSE/"+args._[0]+"/data.json?api_key=z-TzdmrxwT1H4x8oPVuM",(error,response,body) => {
 	if(error)
 		{
 			console.log(error);
 		}  
- 
   var obj=JSON.parse(body).dataset_data.data;
-  
+   
   var size=obj.length;
   flag=0;
+  
   for(var i=0;i<size;i++)
   {
-  	if(obj[i][0]==date1)
-  		{
-  			console.log(obj[i][0]+" "+obj[i][1]);
-  			flag=1;
+  	if(obj[i][0]>=date1 && obj[i][0]<=date2){
+  		    if(flag==0){
+  		    console.log('date open high low last close trade_quantity turnover(in lacs)')
   		}
-
+  			console.log(obj[i][0]+" "+obj[i][1]+" "+obj[i][2]+" "+obj[i][2]+" "+obj[i][3]+" "+obj[i][4]+" "+obj[i][5]+" "+obj[i][6]+" "+obj[i][7])
+  			flag=1;
+  		
+  	
+}
   }
   if(flag==0)
-  	console.log('data for '+date1+' is not available');
+  	console.log('data between '+date1+' and '+date2+' is not available');
 
  
 });
