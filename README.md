@@ -4,9 +4,9 @@ A command line tools that uses apis to collect data related to different stock i
 Language used - Nodejs<br><br>
 Api used from the website https://www.quandl.com/ <br><br>
 Dependencies-<br><br>
-<li>
-  <ol>Request</ol>
-  <ol>minimist</ol>
-  <ol>Chalk</ol>
-  <ol>cli-spinner</ol>
-</li>
+<ol>
+  <li>Request</li>
+  <li>minimist</li>
+  <li>Chalk</li>
+  <li>cli-spinner</li>
+</ol>
